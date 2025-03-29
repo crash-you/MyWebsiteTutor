@@ -1,0 +1,190 @@
+:root {
+    --primary-color: #4a6cfa;
+    --secondary-color: #7b42f6;
+    --text-color: #333;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --card-hover: #f0f7ff;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--card-background);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: var(--card-hover);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.category {
+    margin-bottom: 40px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+h2 {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    background-color: var(--card-hover);
+    border-color: var(--primary-color);
+}
+
+.link-card i {
+    font-size: 20px;
+    margin-right: 12px;
+    color: var(--primary-color);
+}
+
+.link-card span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #e0e0e0;
+        --background-color: #121212;
+        --card-background: #1e1e1e;
+        --card-hover: #2a2a2a;
+        --border-color: #333;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .tab-btn {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .links {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    
+    .container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .links {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+} 
